@@ -1,10 +1,12 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { APP_FILTER, APP_INTERCEPTOR } from '@nestjs/core';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { config, configValidationSchema } from './config/config';
+import { DatabaseConfig } from './config/database.config';
 import { HttpExceptionFilter } from './utils/exceptions/http-exception.filter';
 import { TransformInterceptor } from './utils/interceptors/transform.interceptor';
 
@@ -15,6 +17,10 @@ import { TransformInterceptor } from './utils/interceptors/transform.interceptor
       cache: true,
       isGlobal: true,
       load: [config],
+    }),
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      useClass: DatabaseConfig,
     }),
   ],
   controllers: [AppController],
