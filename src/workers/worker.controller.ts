@@ -1,13 +1,13 @@
-import { Controller } from '@nestjs/common';
+import { Controller } from "@nestjs/common";
 import {
   Ctx,
   MessagePattern,
   Payload,
   RmqContext,
-} from '@nestjs/microservices';
-import { JOB_NAME } from './worker.constant';
+} from "@nestjs/microservices";
+import { JOB_NAME } from "./worker.constant";
 
-import { WorkerService } from './worker.service';
+import { WorkerService } from "./worker.service";
 
 @Controller()
 export class WorkerController {
@@ -18,7 +18,7 @@ export class WorkerController {
     const channel = context.getChannelRef();
     const originalMsg = context.getMessage();
     try {
-      console.log('testRmq', data);
+      console.log("testRmq", data);
       channel.ack(originalMsg);
     } catch (error) {
       console.log(error);

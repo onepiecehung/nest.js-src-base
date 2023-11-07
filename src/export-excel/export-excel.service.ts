@@ -1,7 +1,7 @@
-import { Injectable } from '@nestjs/common';
-import * as xl from 'excel4node';
-import { Response } from 'express';
-import * as moment from 'moment-timezone';
+import { Injectable } from "@nestjs/common";
+import * as xl from "excel4node";
+import { Response } from "express";
+import * as moment from "moment-timezone";
 
 @Injectable()
 export class ExportExcelService {
@@ -13,20 +13,20 @@ export class ExportExcelService {
     this.border = {
       border: {
         left: {
-          style: 'thin',
-          color: '#000000',
+          style: "thin",
+          color: "#000000",
         },
         right: {
-          style: 'thin',
-          color: '#000000',
+          style: "thin",
+          color: "#000000",
         },
         top: {
-          style: 'thin',
-          color: '#000000',
+          style: "thin",
+          color: "#000000",
         },
         bottom: {
-          style: 'thin',
-          color: '#000000',
+          style: "thin",
+          color: "#000000",
         },
         outline: false,
       },
@@ -34,49 +34,49 @@ export class ExportExcelService {
 
     this.stringFormat = {
       alignment: {
-        horizontal: 'center',
+        horizontal: "center",
         wrapText: true,
       },
       font: {
-        color: '#000000',
-        name: 'Noto Sans Kr',
+        color: "#000000",
+        name: "Noto Sans Kr",
       },
     };
 
     this.numberFormat = {
-      numberFormat: '#,##0; -#,##0; 0',
+      numberFormat: "#,##0; -#,##0; 0",
     };
 
     this.bgStyle = {
       fill: {
-        type: 'pattern',
-        patternType: 'solid',
-        bgColor: 'ffffff',
-        fgColor: 'ffffff',
+        type: "pattern",
+        patternType: "solid",
+        bgColor: "ffffff",
+        fgColor: "ffffff",
       },
       font: {
-        color: '#000000',
-        name: 'Noto Sans Kr',
+        color: "#000000",
+        name: "Noto Sans Kr",
       },
     };
   }
-  export(data = [], headers = [], name = '', response: Response, width = 25) {
+  export(data = [], headers = [], name = "", response: Response, width = 25) {
     // File name
-    let titleName = name.split(' ').join('-').toLowerCase();
+    let titleName = name.split(" ").join("-").toLowerCase();
     const title =
-      titleName + '-' + moment().tz('Asia/Seoul').format('yyyy-MM-DD');
-    const fileName = title + '.xlsx';
+      titleName + "-" + moment().tz("Asia/Seoul").format("yyyy-MM-DD");
+    const fileName = title + ".xlsx";
     const wb = new xl.Workbook();
-    const ws = wb.addWorksheet('Sheet 1');
+    const ws = wb.addWorksheet("Sheet 1");
 
     const boldCenterStyle = wb.createStyle({
       font: {
         bold: true,
-        color: '#000000',
-        name: 'Noto Sans Kr',
+        color: "#000000",
+        name: "Noto Sans Kr",
       },
       alignment: {
-        horizontal: 'center',
+        horizontal: "center",
       },
     });
 
@@ -107,8 +107,8 @@ export class ExportExcelService {
         .style(styleString)
         .style({
           fill: {
-            bgColor: '#dfdedb',
-            fgColor: '#dfdedb',
+            bgColor: "#dfdedb",
+            fgColor: "#dfdedb",
           },
         });
     });
@@ -118,59 +118,59 @@ export class ExportExcelService {
       let index = 0;
       headers.forEach((header) => {
         const value =
-          header.key === 'id'
+          header.key === "id"
             ? ++i
             : header.subKey
             ? item[header.key][header.subKey]
             : item[header.key];
 
-        if (typeof value !== 'undefined') {
+        if (typeof value !== "undefined") {
           switch (typeof value) {
-            case 'number':
+            case "number":
               ws.cell(rowCount, ++index)
                 .number(Number(value) || 0)
                 .style(styleNumber);
               break;
-            case 'object':
+            case "object":
               if (value instanceof Date) {
                 ws.cell(rowCount, ++index)
                   .string(
                     moment(value)
-                      .tz('Asia/Seoul')
-                      .format('yyyy-MM-DD HH:mm:ss'),
+                      .tz("Asia/Seoul")
+                      .format("yyyy-MM-DD HH:mm:ss"),
                   )
                   .style(styleString);
               } else {
                 if (value === null) {
-                  ws.cell(rowCount, ++index).string('').style(styleString);
+                  ws.cell(rowCount, ++index).string("").style(styleString);
                 } else {
                   ws.cell(rowCount, ++index).string(value).style(styleString);
                 }
               }
               break;
-            case 'boolean':
+            case "boolean":
               ws.cell(rowCount, ++index).bool(value).style(styleString);
               break;
             default:
               ws.cell(rowCount, ++index)
-                .string(value || '')
+                .string(value || "")
                 .style(styleString);
               break;
           }
         } else {
-          ws.cell(rowCount, ++index).string('').style(styleString);
+          ws.cell(rowCount, ++index).string("").style(styleString);
         }
       });
       rowCount++;
     });
 
     response.setHeader(
-      'Content-Type',
-      'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+      "Content-Type",
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
     );
     response.setHeader(
-      'Content-Disposition',
-      'attachment; filename=' + fileName,
+      "Content-Disposition",
+      "attachment; filename=" + fileName,
     );
     wb.write(fileName, response);
   }

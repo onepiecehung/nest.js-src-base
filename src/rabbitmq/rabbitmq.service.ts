@@ -1,11 +1,11 @@
-import { JOB_NAME } from 'src/workers/worker.constant';
+import { JOB_NAME } from "src/workers/worker.constant";
 
-import { Inject, Injectable } from '@nestjs/common';
-import { ClientProxy } from '@nestjs/microservices';
+import { Inject, Injectable } from "@nestjs/common";
+import { ClientProxy } from "@nestjs/microservices";
 
 @Injectable()
 export class RabbitMQService {
-  constructor(@Inject('WORKER_SERVICE') private client: ClientProxy) {}
+  constructor(@Inject("WORKER_SERVICE") private client: ClientProxy) {}
 
   async testRmq(): Promise<boolean> {
     try {

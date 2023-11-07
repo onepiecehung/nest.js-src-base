@@ -1,9 +1,9 @@
-import { Inject, Injectable } from '@nestjs/common';
-import { Cache } from 'cache-manager';
+import { Inject, Injectable } from "@nestjs/common";
+import { Cache } from "cache-manager";
 
 @Injectable()
 export class RedisCacheService {
-  constructor(@Inject('CACHE_MANAGER') private cacheManager: Cache) {}
+  constructor(@Inject("CACHE_MANAGER") private cacheManager: Cache) {}
 
   private defaultTtl = 3600000; // 1 hour
 
@@ -63,7 +63,7 @@ export class RedisCacheService {
     if (lock) {
       return true;
     } else {
-      await this.cacheManager.set(key, 'true', { ttl } as any);
+      await this.cacheManager.set(key, "true", { ttl } as any);
       return false;
     }
   }
