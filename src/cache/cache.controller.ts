@@ -1,7 +1,7 @@
 import { Controller } from '@nestjs/common';
-import { CacheService } from './cache.service';
+import { RedisCacheService } from './cache.service';
 
 @Controller('cache')
 export class CacheController {
-  constructor(private readonly cacheService: CacheService) {}
+  constructor(private readonly cacheService: RedisCacheService) {}
 }

@@ -1,10 +1,11 @@
-import { Module } from '@nestjs/common';
+import { Module, Global } from '@nestjs/common';
 import { CacheController } from './cache.controller';
-import { CacheService } from './cache.service';
+import { RedisCacheService } from './cache.service';
 
+@Global()
 @Module({
   controllers: [CacheController],
-  providers: [CacheService],
-  exports: [CacheService],
+  providers: [RedisCacheService],
+  exports: [RedisCacheService],
 })
-export class CacheModule {}
+export class RedisCacheModule {}
