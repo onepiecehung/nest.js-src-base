@@ -9,8 +9,8 @@ export const configValidationSchema = Joi.object({
   DB_USER: Joi.string().required(),
   DB_PASSWORD: Joi.string().allow('', null),
   DB_NAME: Joi.string().required(),
-  // REDIS_HOST: Joi.string().required(),
-  // REDIS_PORT: Joi.number().required(),
+  REDIS_URL: Joi.string().required(),
+  REDIS_PASSWORD: Joi.string().required(),
   // // REDIS_URL: Joi.string().required(),
   // KAKAO_AUTH_ACCESS_LINK: Joi.string().required(),
   // NAVER_AUTH_ACCESS_LINK: Joi.string().required(),
@@ -67,7 +67,7 @@ export const config = () => ({
   },
 
   redis: {
-    host: process.env.REDIS_HOST,
+    host: process.env.REDIS_URL,
   },
 
   twilio: {
