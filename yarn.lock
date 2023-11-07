@@ -732,7 +732,7 @@
 
 "@nestjs/config@^3.1.1":
   version "3.1.1"
-  resolved "https://registry.npmjs.org/@nestjs/config/-/config-3.1.1.tgz"
+  resolved "https://registry.yarnpkg.com/@nestjs/config/-/config-3.1.1.tgz#51e23ed84debd08afb86acf7b92bc4bf341797da"
   integrity sha512-qu5QlNiJdqQtOsnB6lx4JCXPQ96jkKUsOGd+JXfXwqJqZcOSAq6heNFg0opW4pq4J/VZoNwoo87TNnx9wthnqQ==
   dependencies:
     dotenv "16.3.1"
@@ -799,7 +799,7 @@
 
 "@nestjs/typeorm@^10.0.0":
   version "10.0.0"
-  resolved "https://registry.npmjs.org/@nestjs/typeorm/-/typeorm-10.0.0.tgz"
+  resolved "https://registry.yarnpkg.com/@nestjs/typeorm/-/typeorm-10.0.0.tgz#78e20d3413d59dd3dfee03260c904f0f4040b4e1"
   integrity sha512-WQU4HCDTz4UavsFzvGUKDHqi0MO5K47yFoPXdmh+Z/hCNO7SHCMmV9jLiLukM8n5nKUqJ3jDqiljkWBcZPdCtA==
   dependencies:
     uuid "9.0.0"
@@ -3632,7 +3632,7 @@ jest@^29.5.0:
 
 joi@^17.11.0:
   version "17.11.0"
-  resolved "https://registry.npmjs.org/joi/-/joi-17.11.0.tgz"
+  resolved "https://registry.yarnpkg.com/joi/-/joi-17.11.0.tgz#aa9da753578ec7720e6f0ca2c7046996ed04fc1a"
   integrity sha512-NgB+lZLNoqISVy1rZocE9PZI36bL/77ie924Ri43yEvi9GUUMPeyVIr8KdFTMUlby1p0PBYMk9spIxEUQYqrJQ==
   dependencies:
     "@hapi/hoek" "^9.0.0"
@@ -4023,10 +4023,10 @@ mute-stream@0.0.8:
   resolved "https://registry.npmjs.org/mute-stream/-/mute-stream-0.0.8.tgz"
   integrity sha512-nnbWWOkoWyUsTjKrhgD0dcz22mdkSnpYqbEjIm2nhwhuxlSkpywJmBo8h0ZqJdkp73mb90SssHkN4rsRaBAfAA==
 
-mysql2@^3.6.2:
-  version "3.6.2"
-  resolved "https://registry.npmjs.org/mysql2/-/mysql2-3.6.2.tgz"
-  integrity sha512-m5erE6bMoWfPXW1D5UrVwlT8PowAoSX69KcZzPuARQ3wY1RJ52NW9PdvdPo076XiSIkQ5IBTis7hxdlrQTlyug==
+mysql2@^3.6.3:
+  version "3.6.3"
+  resolved "https://registry.yarnpkg.com/mysql2/-/mysql2-3.6.3.tgz#d478be7aa97ea675d92f079d072f5a45cb772902"
+  integrity sha512-qYd/1CDuW1KYZjD4tzg2O8YS3X/UWuGH8ZMHyMeggMTXL3yOdMisbwZ5SNkHzDGlZXKYLAvV8tMrEH+NUMz3fw==
   dependencies:
     denque "^2.1.0"
     generate-function "^2.3.1"
@@ -5191,7 +5191,7 @@ typedarray@^0.0.6:
 
 typeorm@^0.3.17:
   version "0.3.17"
-  resolved "https://registry.npmjs.org/typeorm/-/typeorm-0.3.17.tgz"
+  resolved "https://registry.yarnpkg.com/typeorm/-/typeorm-0.3.17.tgz#a73c121a52e4fbe419b596b244777be4e4b57949"
   integrity sha512-UDjUEwIQalO9tWw9O2A4GU+sT3oyoUXheHJy4ft+RFdnRdQctdQ34L9SqE2p7LdwzafHx1maxT+bqXON+Qnmig==
   dependencies:
     "@sqltools/formatter" "^1.2.5"
