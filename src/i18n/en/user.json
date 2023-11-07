@@ -1,0 +1,16 @@
+{
+  "101": "User id: {id} not found",
+  "102": "This account has not been registered",
+  "103": "This account has been deactivated",
+  "104": "Password does not match",
+  "105": "This email has been taken",
+  "106": "This phone number has been taken",
+  "107": "Email and Password is required",
+  "108": "SocialId has existed",
+  "109": "Create user failed",
+  "110": "Create account fail, please verify email and phone number again",
+  "111": "Email verified",
+  "112": "Not enough point",
+  "113": "This nickname already exists.",
+  "114": "This is a withdrawal ID, so you need to re-register. \nWithdrawal date: {time}"
+}

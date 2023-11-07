@@ -1,0 +1,11 @@
+{
+  "1601": "Payment product not found",
+  "1602": "Verify purchase token failed",
+  "1603": "Purchase token is already used",
+  "1604": "Payment history not found",
+  "1605": "This order has been cancelled.",
+  "1606": "This order is being processed",
+  "1607": "Transaction not found",
+  "1608": "Transaction already used",
+  "1609": "Transaction decode failed"
+}

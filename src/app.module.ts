@@ -15,6 +15,8 @@ import { ExportExcelModule } from './export-excel/export-excel.module';
 import { RabbitMQModule } from './rabbitmq/rabbitmq.module';
 import { HttpExceptionFilter } from './utils/exceptions/http-exception.filter';
 import { TransformInterceptor } from './utils/interceptors/transform.interceptor';
+import { AcceptLanguageResolver, I18nModule } from 'nestjs-i18n';
+import { join } from 'path';
 
 import type { ClientOpts } from 'redis';
 @Module({
@@ -46,6 +48,17 @@ import type { ClientOpts } from 'redis';
 
       // host: process.env.REDIS_HOST,
       // port: process.env.REDIS_PORT,
+    }),
+    I18nModule.forRootAsync({
+      inject: [ConfigService],
+      resolvers: [AcceptLanguageResolver],
+      useFactory: (configService: ConfigService) => ({
+        fallbackLanguage: 'en',
+        loaderOptions: {
+          path: join(__dirname, '/i18n/'),
+          watch: true,
+        },
+      }),
     }),
     RedisCacheModule,
     RabbitMQModule,

@@ -1,0 +1,11 @@
+{
+  "000": "Internal server error",
+  "001": "Time invalid",
+  "002": "Too many requests confirmed. Please try again in a few minutes.",
+  "validation": {
+    "passwordTooWeak": "Password too weak",
+    "passwordMinLength": "Password min length is 8 characters",
+    "passwordMaxLength": "Password max length is 50 characters",
+    "regexEmail": "Email must be a valid email"
+  }
+}

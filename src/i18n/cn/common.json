@@ -1,0 +1,11 @@
+{
+  "000": "内部服务器错误",
+  "001": "时间无效",
+  "002": "确认的请求过多。请几分钟后重试。",
+  "validation": {
+    "passwordTooWeak": "密码太弱",
+    "passwordMinLength": "密码最小长度为 8 个字符",
+    "passwordMaxLength": "密码最大长度为 50 个字符",
+    "regexEmail": "电子邮件必须是有效的电子邮件"
+  }
+}

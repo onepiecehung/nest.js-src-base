@@ -1,0 +1,7 @@
+{
+  "501": "Upload failed",
+  "502": "Delete failed",
+  "503": "Only image files are allowed",
+  "504": "Files upload is empty",
+  "505": "File upload not found"
+}
